@@ -31,14 +31,6 @@ func main() {
 		scores[n] = myScore
 	}
 
-	// The winner of the whole tournament is the player with the highest score.
-	// Your total score is the sum of your scores for each round.
-	// The score for a single round is the score for the shape you selected
-	// (1 for Rock, 2 for Paper, and 3 for Scissors) plus the score for
-	// the outcome of the round (0 if you lost, 3 if the round was a draw, and 6 if you won).
-
-	// What would your total score be if everything goes exactly according to your strategy guide?
-	// -> PRINT TOTAL SCORE.
 	totalScore := 0
 	for _, pts := range scores {
 		totalScore += pts
@@ -47,16 +39,6 @@ func main() {
 }
 
 func findOutcomeOfRound(myMove, opponentsMove string) (myScore int) {
-	// Rock defeats Scissors
-	// Paper defeats Rock
-	// Scissors defeats Paper
-
-	// If both players choose the same shape, the round instead ends in a draw.
-
-	// A for Rock, B for Paper, and C for Scissors -> Opponent's move
-	// X for Rock, Y for Paper, and Z for Scissors -> My move
-
-	// init values with shape scores
 	myScore = calculateShapeScore(myMove)
 	opponentsScore := calculateShapeScore(opponentsMove)
 
@@ -73,10 +55,6 @@ func findOutcomeOfRound(myMove, opponentsMove string) (myScore int) {
 			// Take the W
 			myScore += winPoints
 		}
-		// else {
-		// 	// Take the L
-		// 	opponentsScore += winPoints
-		// }
 	}
 
 	return
