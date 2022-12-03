@@ -2,6 +2,7 @@ package main
 
 import (
 	_ "embed"
+	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -36,18 +37,22 @@ func main() {
 		calories[elf] = append(calories[elf], calorie)
 	}
 
-	println(findHighestCalories(calories))
-}
-
-func findHighestCalories(calories [][]int) int {
 	totals := make([]int, len(calories))
 	for n, arr := range calories {
 		for _, calorie := range arr {
 			totals[n] += calorie
 		}
 	}
-
 	sort.Sort(sort.Reverse(sort.IntSlice(totals)))
 
+	fmt.Println(findHighestCalories(totals))
+	fmt.Println(top3Totals(totals))
+}
+
+func findHighestCalories(totals []int) int {
 	return totals[0]
+}
+
+func top3Totals(totals []int) int {
+	return totals[0] + totals[1] + totals[2]
 }
