@@ -41,29 +41,30 @@ func main() {
 }
 
 func doesSectionOverlapInOtherSection(a, b Sections) bool {
-	exists := make(map[int]bool)
-	for _, value := range a {
-		exists[value] = true
-	}
-	for _, value := range b {
-		if exists[value] {
-			return true
-		}
-	}
-	return false
+	return sectionsWithOtherSections(a, b, false, false)
 }
 
 func doesSectionContainOtherSection(a, b Sections) bool {
+	return sectionsWithOtherSections(a, b, true, true)
+}
+
+func sectionsWithOtherSections(a, b Sections, check, returnVal bool) bool {
 	exists := make(map[int]bool)
 	for _, value := range a {
 		exists[value] = true
 	}
 	for _, value := range b {
-		if !exists[value] {
-			return false
+		if check {
+			if !exists[value] {
+				return false
+			}
+		} else {
+			if exists[value] {
+				return true
+			}
 		}
 	}
-	return true
+	return returnVal
 }
 
 func countSections(section string) (sections Sections) {
