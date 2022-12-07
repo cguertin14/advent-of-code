@@ -13,7 +13,7 @@ func main() {
 	fmt.Println(findMarker(13))
 }
 
-func findMarker(minCharPosition int) (marker int) {
+func findMarker(minCharPosition int) int {
 outer:
 	for i, char := range input {
 		if i >= minCharPosition {
@@ -24,9 +24,8 @@ outer:
 				}
 				chars[input[j]] = true
 			}
-			marker = i + 1
-			break outer
+			return i + 1
 		}
 	}
-	return
+	return -1
 }
