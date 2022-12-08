@@ -34,10 +34,8 @@ func main() {
 	for _, line := range lines[1:] {
 		splitted := strings.Split(line, " ")
 		if strings.Contains(line, "$") {
-			// handle command executed - either 'cd' or 'ls'
 			if splitted[1] == "cd" {
 				if splitted[2] == ".." {
-					// directory = fmt.Sprintf("%s/%s", directory, splitted[2])
 					current = current.parent
 				} else {
 					var child dir
