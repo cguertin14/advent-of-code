@@ -45,13 +45,12 @@ func main() {
 				}
 			}
 		} else {
-			// check if arg is a number or not
 			if splitted[0] == "dir" {
 				// do nothing, skip directories
 			} else {
 				size, _ := strconv.Atoi(splitted[0])
-				// update total and parent's
-				// total as well while there
+				// update size and parent's
+				// size as well while there
 				// is no more parent
 				update := current
 				for update != nil {
