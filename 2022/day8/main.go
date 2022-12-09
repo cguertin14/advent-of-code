@@ -77,9 +77,7 @@ func calculateScore(tree int, left, right, up, down []int) int {
 				count++
 				break
 			}
-			if other < tree {
-				count++
-			}
+			count++
 		}
 		return
 	}
