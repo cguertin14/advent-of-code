@@ -28,7 +28,6 @@ func main() {
 	visibleTrees := len(lines)*2 + len(lines[0])*2 - 4 // 16 initial trees in test
 	highestScenicScore := 0
 	for rowNumber := 1; rowNumber < len(forest[1:]); rowNumber++ {
-		// for _, row := range forest[1 : len(forest)-1] {
 		row := forest[rowNumber]
 		for columnNumber := 1; columnNumber < len(row[1:]); columnNumber++ {
 			tree := row[columnNumber]                               // current tree
@@ -37,8 +36,7 @@ func main() {
 			up := buildValues(forest[0:rowNumber], columnNumber)    // trees up of current tree
 			down := buildValues(forest[rowNumber+1:], columnNumber) // trees down of current tree
 
-			// calculate scenic score of current tree
-			// and check if its the highest
+			// calculate scenic score of current tree and check if it is the highest
 			score := calculateScore(tree, left, right, up, down)
 			if score > highestScenicScore {
 				highestScenicScore = score
