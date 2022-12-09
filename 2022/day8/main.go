@@ -89,11 +89,10 @@ func calculateScore(tree int, left, right, up, down []int) int {
 	return score
 }
 
-func reverseSlice(slice []int) []int {
+func reverseSlice(slice []int) {
 	sort.SliceStable(slice, func(i, j int) bool {
 		return i > j
 	})
-	return slice
 }
 
 func buildValues(rows [][]int, columnNumber int) []int {
