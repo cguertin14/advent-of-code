@@ -14,7 +14,6 @@ func main() {
 	lines := strings.Split(input, "\n")
 	part1Count := 0
 	part2Count := 0
-
 	for _, line := range lines {
 		digits := strings.Split(line, " ")
 		// Part 1
@@ -31,7 +30,6 @@ func main() {
 					newDigits = append(newDigits, digit)
 				}
 			}
-
 			if testReport(newDigits) {
 				part2Count++
 				break
